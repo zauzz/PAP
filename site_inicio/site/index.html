@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>SITE BASE</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+    $(function(){
+        $('#footer').load('footer.html');
+    })
+</script>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "C1gYfUTE3F-6DjytG",
+      });
+   })();
+</script>
+
+
+</head>
+<body>
+
+    
+<header class="header">
+    <a href="/site_inicio/site/#home" class="logo">
+        <img src="/site_inicio/images/logo.png" alt="">
+    </a>
+    <nav class="navbar">
+        <a href="/site_inicio/site/#home">inicio</a>
+        <a href="/site_inicio/site/#about">sobre</a>
+        <a href="/site_inicio/site/#menu">menu</a>
+        <a href="/site_inicio/site/#products">produtos</a>
+        <a href="/site_inicio/site/#contact">contatos</a>
+    </nav>
+    <div class="icons">
+        <a href="/site_inicio/cart/cart.html"> 
+            <div class="fas fa-shopping-cart" id="cart-btn"></div> 
+        </a> 
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <a href="login.html"> 
+            <div class="fa-solid fa-person" id="login-btn"></div>
+        </a>
+    </div>
+</header>
+
+    <section class="home" id="home">
+        <div id="popupMessage"></div>
+        <div class="content">
+            <h3>Lorem ipsum dolor</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="#menu" class="btn">compra agora</a>      
+        </div>
+    </section>
+    <section class="about" id="about">
+        <h1 class="heading"> <span>sobre</span> nos </h1>
+        <div class="row">
+            <div class="image">
+                <img src="/site_inicio/images/sobrenos.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>quem somos?</h3>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. A sit doloribus fuga assumenda modi, nihil
+                    esse sapiente provident atque.</p>
+                <div class="btn-container">
+                    <a href="#" class="btn">sabe mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="menu" id="menu">
+
+        <h1 class="heading">Os <span> menus</span> </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="/site_inicio/images/menus/Em%20Branco%201%20Painel%20Paisagem%20Quadrinhos.png" alt="">
+                <h3>Menu criação</h3>
+                <div class="price">€5.99<span>€9.99</span> </div>
+                <a href="#" class="btn">carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="/site_inicio/images/menus/Em%20Branco%201%20Painel%20Paisagem%20Quadrinhos.png" alt="">
+                <h3>Menu Alimentação</h3>
+                <div class="price">€5.99<span>€9.99</span> </div>
+                <a href="#" class="btn">carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="/site_inicio/images/menus/Em%20Branco%201%20Painel%20Paisagem%20Quadrinhos.png" alt="">
+                <h3>Menu Intermédio</h3>
+                <div class="price">€5.99<span>€9.99</span> </div>
+                <a href="#" class="btn">carrinho</a>
+            </div>
+
+            <div class="box">
+                <img src="/site_inicio/images/menus/Em%20Branco%201%20Painel%20Paisagem%20Quadrinhos.png" alt="">
+                <h3>Pronto a comer</h3>
+                <div class="price">€5.99<span>€9.99</span> </div>
+                <a href="#" class="btn">carrinho</a>
+            </div>
+    </section>
+
+    <section class="products" id="products">
+
+        <h1 class="heading">Os <span>Produtos</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="icons">
+                    <a href="frango.html" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="/site_inicio/images/sellers/frango.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>frango</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">€15.99<span>€20.99</span></div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="/site_inicio/images/sellers/farelo(farinha).png" alt="">
+                </div>
+                <div class="content">
+                    <h3>farinha</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">€15.99<span>€20.99</span></div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="/site_inicio/images/sellers/cartela ovos.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>ovo</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">€15.99<span>€20.99</span></div>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>  
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="/site_inicio/images/sellers/esterco.png" alt="">
+                </div>
+                <div class="content">
+                    <h3>esterco</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">€15.99<span>€20.99</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id = "contact">
+
+        <h1 class="heading"> <span> contacta</span> nos </h1>v
+
+        <div class="row">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.4544823542324!2d-8.133618323435952!3d40.708010537859046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23402962d9e29f%3A0xf7e0fe132eb1afd0!2sEM621%2C%20Pa%C3%A7os%20de%20Vilharigues!5e0!3m2!1spt-PT!2spt!4v1706917274968!5m2!1spt-PT!2spt" 
+             allowfullscreen="" loading="lazy" ></iframe>
+
+             <form action="">
+                <h3>Contacte nos</h3>
+                <div class="inputBox">
+                    <span class="fas fa-user"></span>
+                    <input type="text" id="name" placeholder="nome">
+                </div>
+                <div class="inputBox">
+                    <span class="fas fa-envelope"></span>
+                    <input type="email" id="email" placeholder="email">
+                </div>
+                <div class="inputBox">
+                    <span class="fas fa-phone"></span>
+                    <input type="number" id="number" placeholder="numero" oninput="this.value = this.value.slice(0, 9)">
+                </div>
+                <div class="inputBox">
+                    <span class="fas fa-envelope-open-text"></span>
+                    <input type="text" id="message" placeholder="mensagem">
+                </div>
+                
+            
+
+                <input href="#contact" type="submit" value="enviar" id ="enviar" onclick= "sendEmail()" class="btn">
+
+             </form>
+        </div>
+
+    </section>
+
+    <div id="footer"></div>
+
+
+    <script src="email.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>
+</html>

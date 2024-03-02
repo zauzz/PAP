@@ -1,0 +1,5 @@
+olho para mostrar password
+
+meter hover var main color nos menus
+
+ser o suer ja estiver logado dar redirect para uma outra pagina a dizer que ja esta logado.

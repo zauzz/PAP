@@ -1,0 +1,23 @@
+Menus
+
+Menu 1- Nome:(Menu criação)frango+farinha/esterco
+
+
+Menu 2- Nome:(Menu Alimentação)ovo+frangos
+
+
+Menu 3- Nome:(Menu Intermédio)farinha+ovo
+
+
+Menu 4- Nome:Frango frito
+
+--------------------------------------------------------------------------------
+
+Produtos
+
+frango(ao abrir a pagina aparecer os dias que o frango tem gramas medias...etc)
+farinha(ao abrir a pagina seguinte aparecer o tipo de farinha b4/b6...etc)
+ovo(ao abrir a pagina aparecer o dia que foi ecludido...etc)
+esterco(ao abrir a pagina aparecer para que pode servir e para onde e indicado o uso do mesmo)
+
+EM TODOS TER UMA PARTE QUE ESPECIFICA A QUALIDADE E UM BREVE RESUMO(CHAT GPT/BLACKBOX)
