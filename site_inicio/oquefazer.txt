@@ -1,5 +1,4 @@
-olho para mostrar password
+olho para mostrar password (LOGIN ESTA A DAR///PERCEBER PORQUE NAO ESTA A DAR NO REGISTRO)
 
-meter hover var main color nos menus
+trabalhar com cookies para guardar o login caso o utilizador clique na checkbox lembrar me no login
 
-ser o suer ja estiver logado dar redirect para uma outra pagina a dizer que ja esta logado.

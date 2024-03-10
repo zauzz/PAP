@@ -1,0 +1,58 @@
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #010103;
+    --border: .1rem solid rgba(255, 255, 255, .3);
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--main-color);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#textbox {
+    margin-top: 50px;
+    padding: 10px;
+    border: var(--border);
+    background-color: var(--black);
+    color: var(--main-color);
+    width: 300px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: var(--bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#button:hover {
+    background-color: darken(var(--main-color), 10%);
+}
+
+#thank-you {
+    display: none;
+    margin-top: 20px;
+    color: green;
+    font-size: 18px;
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

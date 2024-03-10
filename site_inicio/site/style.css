@@ -228,7 +228,7 @@ section{
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: url('/site_inicio/images/fundo.jpg'), no-repeat;
+    background: url('../images/fundo.jpg'), no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -303,6 +303,8 @@ section{
     gap:1.5rem;
 }
 
+
+
 .menu .box-container .box{
     padding: 5rem;
     text-align: center;
@@ -310,18 +312,24 @@ section{
     border-radius: 10px;
 }
 
+.menu .box-container .box:hover .btn{
+background-color: white;
+color: var(--main-color);
+}
+
+
 .menu .box-container .box img{
     height: 10rem;
 }
 
 .menu .box-container .box h3{
-    color:#fff;
+    color: white;
     font-size: 2rem;
     padding: 1rem 0;
 }
 
 .menu .box-container .box .price{
-    color:#fff;
+    color: white;
     font-size: 2.5rem;
     padding: .5rem 0;
 }
@@ -336,7 +344,7 @@ section{
 }
 
 .menu .box-container .box:hover > *{
-    color:var(--black)
+    color: white;
 }
 
 .products .box-container{
@@ -402,7 +410,7 @@ section{
 }
 
 .menu .box-container .box:hover{
-    background: #fff;
+    background: var(--main-color);
 }
 
 .contact .row{

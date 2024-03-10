@@ -24,6 +24,8 @@
     })
 </script>
 
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     var form = document.querySelector('.form-wrapper.sign-up form');
@@ -37,25 +39,37 @@
   });
   </script>
 
-  
-  
+  <script>
+  function togglePasswordVisibility(fieldId) {
+    var passwordInput = document.getElementById(fieldId);
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
+  </script>
+
+
+
+
 </head>
 <body>
 
     
 <header class="header">
-  <a href="/site_inicio/site/#home" class="logo">
-      <img src="/site_inicio/images/logo.png" alt="">
+  <a href="../site/#home" class="logo">
+      <img src="../images/logo.png" alt="">
   </a>
   <nav class="navbar">
-      <a href="/site_inicio/site/#home">inicio</a>
-      <a href="/site_inicio/site/#about">sobre</a>
-      <a href="/site_inicio/site/#menu">menu</a>
-      <a href="/site_inicio/site/#products">produtos</a>
-      <a href="/site_inicio/site/#contact">contatos</a>
-  </nav>
+    <a href="../site/#home">inicio</a>
+    <a href="../site/#about">sobre</a>
+    <a href="../site/#menu">menu</a>
+    <a href="../site/#products">produtos</a>
+    <a href="../site/#contact">contatos</a>
+</nav>
   <div class="icons">
-      <a href="/site_inicio/cart/cart.html"> 
+      <a href="../cart/cart.html"> 
           <div class="fas fa-shopping-cart" id="cart-btn"></div> 
       </a> 
       <div class="fas fa-bars" id="menu-btn"></div>
@@ -65,22 +79,39 @@
   </div>
 </header>
 
-  //Login
 
-  <div class="wrapper">
-    <div class="form-wrapper sign-in">
+      
+<div class="wrapper">
+  <div class="form-wrapper sign-in">
       <form action="login.php" method="post">
+        <h2 id="message" style="padding: 10px;
+                                margin: 20px;
+                                border: 2px solid transparent;
+                                border-radius: 20px;
+                                text-align: center;
+                                text-decoration: underline;
+                                text-decoration-color: #d3ad7f;
+                                font-size: 17px;">
+        </h2>
         <h2>Iniciar sessão</h2>
         <div class="input-group">
-          <input type="text" maxlength="11" required>
+          <input type="text" maxlength="11" required name="id">
           <label for="">Id</label>
         </div>
         <div class="input-group">
-          <input type="password" required>
+          <input type="password" required name="password" id="password_login">
           <label for="">Palavra-passe</label>
+          <button type="button" id="showPassword" onclick="togglePasswordVisibility('password_login')" style="width: 22px; 
+                                                                                              height: 22px;  
+                                                                                              position: absolute;
+                                                                                              right: 0;
+                                                                                              top: 50%;
+                                                                                              transform: translateY(-50%);
+                                                                                              background-image: url('../images/eyes/view.png');
+                                                                                              background-size: cover;"></button>
         </div>
         <div class="remember">
-          <label><input type="checkbox" id="lembrar-me" name="lembrar-me"> Lembrar-me</label>
+          <label><input type="checkbox" id="lembrar-me" name="lembrar-me" onclick="setLoginCookie()"> Lembrar-me</label>
         </div>        
         <button type="submit">Login</button>
         <div class="signUp-link">
@@ -88,8 +119,23 @@
         </div>
       </form>
     </div>
+      <!--php-->
+      <script>
+        // Obtenha a parte da string da consulta da URL
+      const queryString = window.location.search;
 
-    //Registro
+      // Crie um novo objeto URLSearchParams com a string da consulta
+      const params = new URLSearchParams(queryString);
+
+      // Use o método get() para obter o valor de um parâmetro específico
+        const message = params.get('message');
+             
+          let p = document.getElementById('message');
+          p.textContent = message;
+          p.style.color = "#ffffff";
+
+      </script>
+    <!-- //Registro -->
 
 
     <div class="form-wrapper sign-up">
@@ -104,11 +150,24 @@
           <label for="">Email</label>
         </div>
         <div class="input-group">
-          <input type="password" required name="password">
+          <input type="password" required name="password" id="password_register">
           <label for="">Palavra-passe</label>
+          <button type="button" id="showPassword" onclick="togglePasswordVisibility('password_register')" style="width: 22px; 
+                                                                                              height: 22px;  
+                                                                                              position: absolute;
+                                                                                              right: 0;
+                                                                                              top: 50%;
+                                                                                              transform: translateY(-50%);
+                                                                                              background-image: url('../images/eyes/view.png');
+                                                                                              background-size: cover;"></button>
         </div>
         <div class="remember">
-          <label><input type="checkbox" id="concordar" name="concordar"> Eu concordo com os termos & condições</label>
+          <label><input type="checkbox" id="concordar" name="concordar" style="text-decoration: underline;
+                                                                               color: #d3ad7f; 
+                                                                               cursor: pointer;"
+                                                                               >Eu concordo com os 
+                                                                               <a href="https://www.iubenda.com/pt/help/105304-em-que-consistem-os-termos-e-condicoes-e-quando-sao-necessarios" 
+                                                                               target="_blank">termos & condições</a></label>
         </div>
         <button type="submit">Registra-te</button>
         <div class="signUp-link">
@@ -118,9 +177,8 @@
     </div>
   </div>
 
+
  
-
-
 
 
   <script src="login.js"></script>
