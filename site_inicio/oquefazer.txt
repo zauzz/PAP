@@ -1,4 +1,12 @@
-olho para mostrar password (LOGIN ESTA A DAR///PERCEBER PORQUE NAO ESTA A DAR NO REGISTRO)
+COISAS BASICS
+---
+FAZER PAGINAS DOS PRODUTOS
 
-trabalhar com cookies para guardar o login caso o utilizador clique na checkbox lembrar me no login
+CARRINHO
+
+
+------------------
+BUGS CARALHO
+
+limpo?
 

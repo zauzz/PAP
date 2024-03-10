@@ -19,9 +19,13 @@ if ($result === null) {
         // Password matches, login successful
         $response = array("success" => true, "message" => "Login successful", "user" => $result);
 
+        // Definir cookies
+        setcookie("usuario", $id, time() + (86400 * 30), "/"); // 86400 = 1 dia
+        setcookie("senha", $password, time() + (86400 * 30), "/"); // 86400 = 1 dia
+
     } else {
         // Password does not match, return error message or handle accordingly
-        $response = array("success" => false, "message" => "PASSWORD INCORRETA  ");
+        $response = array("success" => false, "message" => "PASSWORD INCORRETA");
     }
 }
 
@@ -36,10 +40,8 @@ else{
 }
 // Convertendo o array de resposta em JSON
 $response_json = json_encode($response);
-
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

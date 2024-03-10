@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,41 +23,87 @@
     $(function(){
         $('#header').load('header.html');
     })
-</script>
-
-
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var form = document.querySelector('.form-wrapper.sign-up form');
-    form.addEventListener('submit', function(event) {
-      var checkbox = document.getElementById('concordar');
-      if (!checkbox.checked) {
-        alert('Por favor, concorde com os termos & condições.');
-        event.preventDefault(); 
-      }
-    });
-  });
   </script>
 
   <script>
-  function togglePasswordVisibility(fieldId) {
-    var passwordInput = document.getElementById(fieldId);
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-    } else {
-      passwordInput.type = "password";
-    }
-  }
+    document.addEventListener("DOMContentLoaded", function() {
+      var form = document.querySelector('.form-wrapper.sign-in form');
+      form.addEventListener('submit', function(event) {
+        var checkbox = document.getElementById('lembrar-me');
+        if (!checkbox.checked) {
+          // Limpa o cookie se a opção "lembrar-me" não estiver marcada
+          document.cookie = "login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+      });
+    });
   </script>
 
+  <script>
+    function setLoginCookie() {
+      var checkbox = document.getElementById('lembrar-me');
+      var expirationDate = "";
+      if (checkbox.checked) {
+        // Define a data de expiração do cookie para 30 dias a partir de agora
+        var expires = new Date();
+        expires.setDate(expires.getDate() + 30);
+        expirationDate = "expires=" + expires.toUTCString();
+      }
+      // Define o cookie com o valor do checkbox "lembrar-me" e data de expiração
+      document.cookie = "login=" + checkbox.checked + "; " + expirationDate + "; path=/;";
+    }
 
+    // Função para recuperar o valor do cookie pelo nome
+    function getCookie(name) {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+        if (cookie.indexOf(name + "=") === 0) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return "";
+    }
 
+    // Define o estado do checkbox "lembrar-me" com base no cookie quando a página é carregada
+    window.onload = function() {
+      var remembered = getCookie("login");
+      if (remembered === "true") {
+        document.getElementById('lembrar-me').checked = true;
+      }
+    };
+  </script>
+
+  <script>
+    function togglePasswordVisibility(fieldId) {
+      var passwordInput = document.getElementById(fieldId);
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+      } else {
+        passwordInput.type = "password";
+      }
+    }
+  </script>
+
+<script>
+  function verificarCheckbox() {
+      var checkbox = document.getElementById('concordar');
+      if (!checkbox.checked) {
+          alert("Você deve concordar com os termos e condições antes de prosseguir.");
+          return false;
+      }
+      return true;
+  }
+
+  function togglePasswordVisibility(inputId) {
+      var input = document.getElementById(inputId);
+      input.type = input.type === 'password' ? 'text' : 'password';
+  }
+</script>
+
+ 
 
 </head>
 <body>
-
-    
 <header class="header">
   <a href="../site/#home" class="logo">
       <img src="../images/logo.png" alt="">
@@ -67,7 +114,7 @@
     <a href="../site/#menu">menu</a>
     <a href="../site/#products">produtos</a>
     <a href="../site/#contact">contatos</a>
-</nav>
+  </nav>
   <div class="icons">
       <a href="../cart/cart.html"> 
           <div class="fas fa-shopping-cart" id="cart-btn"></div> 
@@ -79,80 +126,77 @@
   </div>
 </header>
 
-
-      
 <div class="wrapper">
   <div class="form-wrapper sign-in">
-      <form action="login.php" method="post">
-        <h2 id="message" style="padding: 10px;
-                                margin: 20px;
-                                border: 2px solid transparent;
-                                border-radius: 20px;
-                                text-align: center;
-                                text-decoration: underline;
-                                text-decoration-color: #d3ad7f;
-                                font-size: 17px;">
-        </h2>
-        <h2>Iniciar sessão</h2>
-        <div class="input-group">
-          <input type="text" maxlength="11" required name="id">
-          <label for="">Id</label>
-        </div>
-        <div class="input-group">
-          <input type="password" required name="password" id="password_login">
-          <label for="">Palavra-passe</label>
-          <button type="button" id="showPassword" onclick="togglePasswordVisibility('password_login')" style="width: 22px; 
-                                                                                              height: 22px;  
-                                                                                              position: absolute;
-                                                                                              right: 0;
-                                                                                              top: 50%;
-                                                                                              transform: translateY(-50%);
-                                                                                              background-image: url('../images/eyes/view.png');
-                                                                                              background-size: cover;"></button>
-        </div>
-        <div class="remember">
-          <label><input type="checkbox" id="lembrar-me" name="lembrar-me" onclick="setLoginCookie()"> Lembrar-me</label>
-        </div>        
-        <button type="submit">Login</button>
-        <div class="signUp-link">
-          <p>Não tens uma conta? <a href="#" class="signUpBtn-link">Cria agora</a></p>
-        </div>
-      </form>
-    </div>
-      <!--php-->
-      <script>
-        // Obtenha a parte da string da consulta da URL
-      const queryString = window.location.search;
+    <form action="login.php" method="post">
+      <h2 id="message" style="padding: 10px;
+                              margin: 20px;
+                              border: 2px solid transparent;
+                              border-radius: 20px;
+                              text-align: center;
+                              text-decoration: underline;
+                              text-decoration-color: #d3ad7f;
+                              font-size: 17px;">
+      </h2>
+      <h2>Iniciar sessão</h2>
+      <div class="input-group">
+        <input type="text" maxlength="11" required name="id">
+        <label for="">Id</label>
+      </div>
+      <div class="input-group">
+        <input type="password" required name="password" id="password_login">
+        <label for="">Palavra-passe</label>
+        <button type="button" id="showPassword" onclick="togglePasswordVisibility('password_login')" style="width: 22px; 
+                                                                                            height: 22px;  
+                                                                                            position: absolute;
+                                                                                            right: 0;
+                                                                                            top: 50%;
+                                                                                            transform: translateY(-50%);
+                                                                                            background-image: url('../images/eyes/view.png');
+                                                                                            background-size: cover;"></button>
+      </div>
+      <div class="remember">
+        <label><input type="checkbox" id="lembrar-me" name="lembrar-me" onclick="setLoginCookie()"> Lembrar-me</label>
+      </div>        
+      <button type="submit">Login</button>
+      <div class="signUp-link">
+        <p>Não tens uma conta? <a href="#" class="signUpBtn-link">Cria agora</a></p>
+      </div>
+    </form>
+  </div>
 
-      // Crie um novo objeto URLSearchParams com a string da consulta
-      const params = new URLSearchParams(queryString);
+  <!--php-->
+  <script>
+    // Obtenha a parte da string da consulta da URL
+    const queryString = window.location.search;
 
-      // Use o método get() para obter o valor de um parâmetro específico
-        const message = params.get('message');
-             
-          let p = document.getElementById('message');
-          p.textContent = message;
-          p.style.color = "#ffffff";
+    // Crie um novo objeto URLSearchParams com a string da consulta
+    const params = new URLSearchParams(queryString);
 
-      </script>
-    <!-- //Registro -->
+    // Use o método get() para obter o valor de um parâmetro específico
+    const message = params.get('message');
+         
+    let p = document.getElementById('message');
+    p.textContent = message;
+    p.style.color = "#ffffff";
+  </script>
+  <!-- //Registro -->
 
-
-    <div class="form-wrapper sign-up">
-      <form action="register.php" method ="post">
+  <div class="form-wrapper sign-up">
+    <form action="register.php" method="post" onsubmit="return verificarCheckbox()">
         <h2>Registro</h2>
         <div class="input-group">
-          <input type="text"  maxlength="11"  required name="id">
-          <label for="">Id</label>
+            <input type="text" maxlength="11" required name="id">
+            <label for="">Id</label>
         </div>
         <div class="input-group">
-          <input type="text" required name="email" >
-          <label for="">Email</label>
+            <input type="text" required name="email">
+            <label for="">Email</label>
         </div>
         <div class="input-group">
-          <input type="password" required name="password" id="password_register">
-          <label for="">Palavra-passe</label>
-          <button type="button" id="showPassword" onclick="togglePasswordVisibility('password_register')" style="width: 22px; 
+            <input type="password" required name="password" id="password_register">
+            <label for="">Palavra-passe</label>
+            <button type="button" id="showPassword" onclick="togglePasswordVisibility('password_register')" style="width: 22px; 
                                                                                               height: 22px;  
                                                                                               position: absolute;
                                                                                               right: 0;
@@ -162,23 +206,20 @@
                                                                                               background-size: cover;"></button>
         </div>
         <div class="remember">
-          <label><input type="checkbox" id="concordar" name="concordar" style="text-decoration: underline;
-                                                                               color: #d3ad7f; 
-                                                                               cursor: pointer;"
-                                                                               >Eu concordo com os 
-                                                                               <a href="https://www.iubenda.com/pt/help/105304-em-que-consistem-os-termos-e-condicoes-e-quando-sao-necessarios" 
-                                                                               target="_blank">termos & condições</a></label>
+            <label>
+                <input type="checkbox" id="concordar" name="concordar" style="color: #d3ad7f; cursor: pointer;">
+                Eu concordo com os 
+                <a href="https://www.iubenda.com/pt/help/105304-em-que-consistem-os-termos-e-condicoes-e-quando-sao-necessarios" target="_blank">
+                    <span style="text-decoration: underline; color: #d3ad7f;">termos & condições</span>
+                </a>
+            </label>
         </div>
         <button type="submit">Registra-te</button>
         <div class="signUp-link">
-          <p>Já tens uma conta? <a href="#" class="signInBtn-link">Entra agora</a></p>
+            <p>Já tens uma conta? <a href="#" class="signInBtn-link">Entra agora</a></p>
         </div>
-      </form>
-    </div>
-  </div>
-
-
- 
+    </form>
+</div>
 
 
   <script src="login.js"></script>
